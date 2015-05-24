@@ -3,9 +3,25 @@
   "version": "0.1.1",
   "description": "Movie Subtitle Downloader",
   "repository": "https://github.com/mauris/subber",
-  "scripts": {
-    "start": "node src/subber.js"
+  "bin": "src/subber.js",
+  "author": {
+    "name": "Sam-Mauris Yong",
+    "email": "mauris@hotmail.sg",
+    "url": "http://mauris.sg/"
   },
+  "files": [
+    "src/subber.js"
+  ],
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "keywords": [
+    "subtitles",
+    "movie",
+    "download",
+    "imdb",
+    "mp4"
+  ],
   "dependencies": {
     "download": "^4.1.2",
     "omdb": "^0.2.4",

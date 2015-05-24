@@ -5,28 +5,36 @@ var walk = require('walkdir');
 var yifysubs = require('yifysubs');
 var download = require('download');
 
+var languages = {
+  "EN": {
+    "user": "English",
+    "index": "english",
+    "code": "EN"
+  }
+}
+
 var subber = (function(){
   var subber = subber || [];
 
-  subber.fetchSubtitles = function(imdbId, moviefilename) {
-    console.log("Searching for English subtitles...");
-    yifysubs.searchSubtitles('english', imdbId, function(result){
-      if (result['english']) {
-        console.log("English subtitles found. Downloading...");
+  subber.fetchSubtitles = function(imdbId, moviefilename, language) {
+    console.log("Searching for " + language.user + " subtitles...");
+    yifysubs.searchSubtitles(language.index, imdbId, function(result){
+      if (result[language.index]) {
+        console.log(language.user + " subtitles found. Downloading...");
         new download({mode: '755', extract: true})
-          .get(result['english']['url'])
+          .get(result[language.index]['url'])
           .rename(function(path) {
-            path.basename = moviefilename + '.EN';
+            path.basename = moviefilename + '.' + language.code;
           })
           .dest('.')
           .run(function (err, files) {
             if (err) {
               return console.error(err);
             }
-            console.log('Subtitles downloaded successfully');
+            console.log(language.user + ' subtitles downloaded successfully');
           })
       } else {
-        console.log("English subtitles for the movie not found.");
+        console.log(language.user + " subtitles for the movie not found.");
       }
     });
   }
@@ -45,7 +53,7 @@ var subber = (function(){
       }
 
       console.log('Movie ID Found:', movies[0].imdb);
-      subber.fetchSubtitles(movies[0].imdb, moviefilename);
+      subber.fetchSubtitles(movies[0].imdb, moviefilename, languages['EN']);
     });
   }
 

@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "description": "Movie Subtitle Downloader",
   "repository": "https://github.com/mauris/subber",
+  "scripts": {
+    "start": "node src/subber.js"
+  },
   "dependencies": {
+    "download": "^4.1.2",
     "yifysubs": "0.0.1"
   }
 }

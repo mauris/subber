@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "description": "Movie Subtitle Downloader",
   "repository": "https://github.com/mauris/subber",
-  "bin": "src/subber.js",
+  "bin": "bin/subber",
   "author": {
     "name": "Sam-Mauris Yong",
     "email": "mauris@hotmail.sg",

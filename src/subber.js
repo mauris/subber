@@ -7,10 +7,35 @@ var yifysubs = require('yifysubs');
 var download = require('download');
 
 var languages = {
+  "ZH": {
+    "user": "Chinese",
+    "index": "chinese",
+    "code": "ZH"
+  },
+  "DA": {
+    "user": "Danish",
+    "index": "danish",
+    "code": "DA"
+  },
   "EN": {
     "user": "English",
     "index": "english",
     "code": "EN"
+  },
+  "ES": {
+    "user": "Spanish",
+    "index": "spanish",
+    "code": "ES"
+  },
+  "JA": {
+    "user": "Japanese",
+    "index": "japanese",
+    "code": "JA"
+  },
+  "KO": {
+    "user": "Korean",
+    "index": "korean",
+    "code": "KO"
   }
 }
 

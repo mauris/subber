@@ -1,2 +1,2 @@
 @echo off
-node ../src/subber.js
+node ../src/subber.js %*

@@ -1,2 +1,2 @@
 #!/bin/sh
-node ../src/subber.js
+node ../src/subber.js "$@"

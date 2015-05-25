@@ -88,7 +88,7 @@ var subber = (function(){
     walk('./', function(path, stat){
       if (p.extname(path) === '.mp4') {
         console.log("Movie", p.basename(path), "is found.");
-        subber.queryMovieId(p.basename(path));
+        subber.queryMovieId(p.basename(path, '.mp4'));
         this.end();
       }
     });

@@ -1,6 +1,6 @@
 {
   "name": "subber",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Movie Subtitle Downloader",
   "repository": "https://github.com/mauris/subber",
   "bin": "src/subber.js",

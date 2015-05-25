@@ -37,10 +37,17 @@ var languages = {
     "index": "korean",
     "code": "KO"
   }
-}
+};
 
-var subber = (function(){
+var arguments = process.argv.slice(2);
+
+var subber = (function(args){
   var subber = subber || [];
+
+  // default to EN only if there are no arguments entered.
+  if (args.length < 1) {
+    args = ['EN'];
+  }
 
   subber.fetchSubtitles = function(imdbId, moviefilename, language) {
     console.log("Searching for " + language.user + " subtitles...");
@@ -78,8 +85,12 @@ var subber = (function(){
         return console.log('No movies were found for ' + name);
       }
 
-      console.log('Movie ID Found:', movies[0].imdb);
-      subber.fetchSubtitles(movies[0].imdb, moviefilename, languages['EN']);
+      console.log('Movie ID found as', movies[0].imdb);
+      args.forEach(function(arg) {
+        if (languages[arg]) {
+          subber.fetchSubtitles(movies[0].imdb, moviefilename, languages[arg]);
+        }
+      });
     });
   }
 
@@ -96,4 +107,4 @@ var subber = (function(){
 
   subber.findMovieFile();
   return subber;
-})();
+})(arguments);

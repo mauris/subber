@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var p = require('path');
 var fs = require('fs');
 var omdb = require('omdb');
